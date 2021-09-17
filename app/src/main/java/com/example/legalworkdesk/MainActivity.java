@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         return error;
     }
 
+    //Verifica que los campos no estén vacíos
     public void verificarCampos() {
         if( TextUtils.isEmpty(etCorreo.getText())) {
             etCorreo.setError("El correo es requerido");

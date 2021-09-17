@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_marginTop="10px"
-            android:hint="@string/hContrasena"
+            android:hint="@string/hClave"
             android:textSize="22sp"
             android:inputType="textPassword" />
 
