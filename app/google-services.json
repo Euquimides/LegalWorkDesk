@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "72912107855",
+    "firebase_url": "https://proyecto-clase-appdev-default-rtdb.firebaseio.com",
+    "project_id": "proyecto-clase-appdev",
+    "storage_bucket": "proyecto-clase-appdev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72912107855:android:3224849f60fcc60ef8ad3a",
+        "android_client_info": {
+          "package_name": "com.example.clase_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72912107855-sqq888tbp8vbuf9ib4n9b509k2cou1a9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTMIH1hctEMDbWB7u3Dg07ZhVbnmYaB7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72912107855-sqq888tbp8vbuf9ib4n9b509k2cou1a9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72912107855:android:45a026363092ebe5f8ad3a",
+        "android_client_info": {
+          "package_name": "com.example.legalworkdesk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72912107855-sqq888tbp8vbuf9ib4n9b509k2cou1a9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTMIH1hctEMDbWB7u3Dg07ZhVbnmYaB7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72912107855-sqq888tbp8vbuf9ib4n9b509k2cou1a9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72912107855:android:366986df68f9e994f8ad3a",
+        "android_client_info": {
+          "package_name": "com.example.proyecto_appdev_micitt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72912107855-sqq888tbp8vbuf9ib4n9b509k2cou1a9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTMIH1hctEMDbWB7u3Dg07ZhVbnmYaB7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72912107855-sqq888tbp8vbuf9ib4n9b509k2cou1a9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
