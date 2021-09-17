@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -54,13 +55,26 @@ public class MainActivity extends AppCompatActivity {
         return error;
     }
 
+    public void verificarCampos() {
+        if( TextUtils.isEmpty(etCorreo.getText())) {
+            etCorreo.setError("El correo es requerido");
+        }
+
+        if( TextUtils.isEmpty(etClave.getText())) {
+            etClave.setError("La clave es requerido");
+        }
+    }
+
 
     // Registra usuario y agrega a firebase
     public void registrar(View view) {
         String correo = etCorreo.getText().toString();
         String clave = etClave.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(correo, clave)
+        verificarCampos();
+
+        try {
+            mAuth.createUserWithEmailAndPassword(correo, clave)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -76,6 +90,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Actualiza la interfaz, despues de intentar validar o agregar usuario
@@ -94,18 +111,24 @@ public class MainActivity extends AppCompatActivity {
         String correo = etCorreo.getText().toString();
         String clave = etClave.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(correo, clave)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            updateUI(null);
+        verificarCampos();
+
+        try {
+            mAuth.signInWithEmailAndPassword(correo, clave)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                            } else {
+                                updateUI(null);
+                            }
                         }
-                    }
-                });
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
