@@ -18,33 +18,49 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private EditText etCorreo;
-    private EditText etContrasena;
+    private EditText etClave;
 
     public static FirebaseAuth mAuth;
 
     @Override
+    //Crea la vista 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         etCorreo=findViewById(R.id.etCorreo);
-        etContrasena=findViewById(R.id.etContrasena);
+        etClave=findViewById(R.id.etClave);
 
         mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
+    // Se llama al iniciar la vista
+    // Se busca el usuario en firebase
     public void onStart() {
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         updateUI(user);
     }
 
+    // Verifica que la clave cumpla con los requisitos
+    public String verificarClave(String clave) {
+        String error = "";
+        if (clave.length() < 8 ){
+            error += "Debe tener al menos 8 caracteres";
+        } else {
+            error += "Por favor escriba un correo valido";
+        }
+        return error;
+    }
+
+
+    // Registra usuario y agrega a firebase
     public void registrar(View view) {
         String correo = etCorreo.getText().toString();
-        String contrasena=etContrasena.getText().toString();
+        String clave = etClave.getText().toString();
 
-        mAuth.createUserWithEmailAndPassword(correo, contrasena)
+        mAuth.createUserWithEmailAndPassword(correo, clave)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -53,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Se registró el usuario correctamente.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Fallo el registro",
+                            String error = verificarClave(clave);
+                            Toast.makeText(getApplicationContext(), "Fallo el registro, " + error,
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -61,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    // Actualiza la interfaz, despues de intentar validar o agregar usuario
     private void updateUI(FirebaseUser user) {
         if (user!=null) {
             Intent intento = new Intent(this, MainMenu.class);
@@ -71,11 +89,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Si el usuario existe en la base procede a cargar la siguiente vista
     public void login(View view) {
         String correo = etCorreo.getText().toString();
-        String contrasena=etContrasena.getText().toString();
+        String clave = etClave.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(correo, contrasena)
+        mAuth.signInWithEmailAndPassword(correo, clave)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
