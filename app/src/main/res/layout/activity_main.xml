@@ -28,9 +28,9 @@
             android:id="@+id/etClave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:layout_marginTop="10px"
             android:hint="@string/hClave"
+            android:ems="10"
             android:textSize="22sp"
             android:inputType="textPassword" />
 
