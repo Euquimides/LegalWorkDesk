@@ -2,13 +2,14 @@ package com.example.legalworkdesk.model;
 
 import java.io.Serializable;
 
-public class Abogados extends Serializable {
+public class Honorario implements Serializable {
 
     private int id;
+    private String nombre;
     private double honorarios;
     private double timbres;
 
-    public Abogados(int id, double honorarios, double timbres) {
+    public Honorario(int id, String nombre, double honorarios, double timbres) {
         this.id = id;
         this.honorarios = honorarios;
         this.timbres = timbres;
@@ -36,5 +37,13 @@ public class Abogados extends Serializable {
 
     public void setTimbres(double timbres) {
         this.timbres = timbres;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
