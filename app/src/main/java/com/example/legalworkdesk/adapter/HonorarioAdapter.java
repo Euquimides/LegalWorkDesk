@@ -73,6 +73,6 @@ public class HonorarioAdapter extends RecyclerView.Adapter<HonorarioAdapter.Hono
 
     @Override
     public int getItemCount() {
-        return 0;
+        return honorarioList.size();
     }
 }
