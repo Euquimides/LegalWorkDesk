@@ -1,5 +1,6 @@
 package com.example.legalworkdesk.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.legalworkdesk.R;
 import com.example.legalworkdesk.model.Honorario;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class HonorarioAdapter extends RecyclerView.Adapter<HonorarioAdapter.MyViewHolder> implements View.OnClickListener {
 
+    private static FirebaseDatabase firebaseDatabase;
+    private static DatabaseReference databaseReference;
     private ArrayList<Honorario> proceso;
+    Context context;
+    private View.OnClickListener listener;
 
-    public HonorarioAdapter(ArrayList<Honorario> proceso) {
+    public HonorarioAdapter(Context context, ArrayList<Honorario> proceso) {
+        this.context = context;
         this.proceso = proceso;
     }
 
@@ -30,22 +42,32 @@ public class HonorarioAdapter extends RecyclerView.Adapter<HonorarioAdapter.MyVi
         }
     }
 
+    public void setListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     public void onClick(View view) {
-
+        if (listener != null){
+            listener.onClick(view);
+        }
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
         View viewProceso = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_procesos, parent, false);
+        viewProceso.setOnClickListener(this);
         return new MyViewHolder(viewProceso);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String nombreProceso = proceso.get(position).getProceso();
-        holder.procesoTxT.setText(nombreProceso);
+        Honorario nombreProceso = proceso.get(position);
+        holder.procesoTxT.setText(nombreProceso.getNombreProceso());
 
     }
 

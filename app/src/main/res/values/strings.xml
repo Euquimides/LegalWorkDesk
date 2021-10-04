@@ -13,6 +13,9 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_honorarios">Honorarios</string>
 
+    <string name="tvHonorarios">Honorarios</string>
+    <string name="tvIva">IVA</string>
+
     <string name="hCorreo">Correo</string>
     <string name="hClave">Clave</string>
     <string name="btIngresar">Ingresar</string>

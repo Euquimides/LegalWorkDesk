@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LegalWorkDesk">
         <activity
+            android:name=".CalculatorActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainMenu"
             android:exported="true"
             android:label="@string/title_activity_main_menu"
@@ -24,4 +27,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
