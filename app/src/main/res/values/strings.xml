@@ -21,4 +21,7 @@
     <string name="btIngresar">Ingresar</string>
     <string name="btRegistrar">Registrar</string>
 
+    <string name="btCalcular">Calcular</string>
+    <string name="btGuardar">Guardar</string>
+
 </resources>

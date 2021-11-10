@@ -22,20 +22,26 @@
             android:textAlignment="center"/>
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/etCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Cliente" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Monto"
+            android:textSize="20dp"/>
+
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/etPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="Monto"/>
+            android:text="0" />
 
         <Space
             android:layout_width="match_parent"
@@ -49,10 +55,40 @@
             android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tvMontoHonorario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:textAlignment="viewEnd"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvIva"
+            android:textSize="20dp"/>
+
+        <Spinner
+            android:id="@+id/ivaSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:textSize="25dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Timbres"/>
+
+        <TextView
+            android:id="@+id/tvTimbre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textAlignment="viewEnd"
             android:textSize="20dp" />
 
@@ -61,10 +97,27 @@
             android:layout_height="15dp"/>
 
         <TextView
-            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tvIva"
+            android:text="Total"
             android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewEnd"
+            android:textSize="20dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <Button
+            android:id="@+id/btCalcular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btCalcular" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

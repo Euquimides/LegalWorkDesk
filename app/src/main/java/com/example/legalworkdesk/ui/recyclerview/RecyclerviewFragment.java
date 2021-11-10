@@ -86,6 +86,7 @@ public class RecyclerviewFragment extends Fragment {
 
                 Intent intent = new Intent(getContext(), CalculatorActivity.class);
                 intent.putExtra("nombreProceso", honorario.getNombreProceso());
+                intent.putExtra("honorario", honorario.getMonto());
                 startActivity(intent);
             }
         });
